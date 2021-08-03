@@ -1,0 +1,24 @@
+.button {
+    font: inherit;
+    font-size: 20px;
+    /* border: 1px solid #089ee4;
+    background: #089ee4; */
+    background-image: linear-gradient(to bottom right, #19d3b0
+    , #10cfeb
+    );
+    color: white;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+  }
+  
+  .button:hover,
+  .button:active {
+    transition: transform .2s; 
+    background: #741188;
+    border-color: #741188;
+    color:azure;
+  }
+  
+  .button:focus {
+    outline: none;
+  }

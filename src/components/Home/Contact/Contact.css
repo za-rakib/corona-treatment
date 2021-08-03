@@ -1,0 +1,22 @@
+.contactSection {
+  background-color: #242842;
+  margin: auto auto;
+  padding: 0;
+  width: 100%;
+  opacity: .9;
+}
+.form {
+  width: 60%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

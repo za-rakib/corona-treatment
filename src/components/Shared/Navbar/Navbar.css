@@ -1,0 +1,12 @@
+a{
+    font-size: 25px;
+    color: red;
+}
+.name{
+    font-weight: bold;
+    color: #3a4256;
+
+}
+.name h2{
+    letter-spacing: -3px;
+}

@@ -1,0 +1,16 @@
+.header-container {
+  height: 750px;
+  position: relative;
+  background-image: url("../../../../image/test-2.png");
+  background-size: cover;
+}
+.header-container::after {
+  height: 750px;
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 31%;
+  right: 0;
+  background-color: #272e3f;
+  z-index: -1;
+}

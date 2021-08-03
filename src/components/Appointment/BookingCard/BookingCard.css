@@ -1,0 +1,18 @@
+.booking-card{
+    box-shadow: 5px 5px 15px #c7c7c7;
+    width: 320px;
+}
+.booking-card h4{
+    color: #203047
+    ;
+    font-weight: 600;
+}
+.booking-card h6{
+    color: rgb(104, 102, 102);
+    font-weight: 600;
+}
+.booking-card p{
+    color: rgb(112, 111, 111);
+    font-size: 12px;
+    font-weight: 500;
+}
