@@ -4,7 +4,7 @@ import './Fooret.css'
 const Footer = () => {
     return (
         <footer>
-        <div className="container">
+        <div className="container footer">
           <div className="row">
             <div className="col-md-4">
               <ul className="nav flex-column">
