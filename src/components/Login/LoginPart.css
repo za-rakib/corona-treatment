@@ -80,10 +80,6 @@ form{
 	font-size: 15px;
 }
 
-/* .input-div.focus > .i > i{
-	color: #38d39f;
-} */
-
 .input-div > div > input{
 	position: absolute;
 	left: 0;
@@ -114,16 +110,18 @@ a{
 
 a:hover{
 	color: #38d39f;
+	
 }
 
-.btn{
+ .loginForm .btn{
 	display: block;
 	width: 100%;
 	height: 40px;
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #6C63FF, #6C63FF, #6C63FF);
+	background-color: #6C63FF;
+	/* background-image: linear-gradient(to right, #6C63FF, #6C63FF, #6C63FF); */
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
@@ -140,7 +138,13 @@ a:hover{
 	background-position: right;
     color: rgb(148, 146, 146);
 }
-
+.social i{
+    font-size:35px;
+     color: #6C63FF;
+}
+.social i:hover{
+     color: #281ee2;
+}
 
 @media screen and (max-width: 1050px){
 	.container{

@@ -48,15 +48,16 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="/about">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link ms-3 text-dark" href="#contact">
                 Contact Us
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link ms-3 text-dark" href="/login">
+                Login 
+              </a>
+            </li>
+            
           </ul>
         </div>
       </div>

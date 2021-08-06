@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./components/About/About";
 import { Home } from "./components/Home/Home/Home";
 import Appointment from "./components/Appointment/Appointment/Appointment";
-import  Login  from "./components/Login/Login/Login";
+import  Login  from "./components/Login/Login";
 // import Navbar from "./components/Shared/Navbar/Navbar";
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
           <About/>
         </Route>
         <Route path="/login">
-         {/* <Login/> */}
          <Login/>
         </Route>
         <Route path="/dashboard"></Route>
