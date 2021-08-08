@@ -7,19 +7,22 @@ const AppointmentHeader = ({ handleDateChange }) => {
   //   console.log(data)
   // }
   return (
-    <div>
+    <div className="" style={{ backgroundColor: "#466465" ,height:'550px' }}>
       <main className="container-fluid">
-        <div
-          style={{ height: "500px " }}
-          className="row d-flex align-items-center mt-5 pt-1"
-        >
-          <div className="col-md-4 offset-md-1 ">
-            <h1 style={{ color: "#3a4256" }}>Appointment </h1>
-            <Calendar onChange={handleDateChange} value={new Date()} />
-          </div>
-          <div className="col-md-6 image">
-            <img className="img-fluid" src={test} alt="" />
-          </div>
+        <div className="row d-flex align-items-center  pt-1">
+            <div className="col-md-4 offset-md-1 mt-5">
+              <h1 className='p-2' style={{ color: "white" }}>Appointment </h1>
+              <Calendar onChange={handleDateChange} value={new Date()} />
+            </div>
+            <div className="col-md-6 image mt-5">
+              <img
+                style={{ width: "550px", height: "auto" }}
+                className="img-fluid"
+                src={test}
+                alt=""
+              />
+            </div>
+         
         </div>
       </main>
     </div>

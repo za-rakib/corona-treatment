@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg ml-auto  bg-secondary">
+    <nav className="navbar-main  navbar-expand-lg ml-auto text-white">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
@@ -18,44 +19,44 @@ const Navbar = () => {
         </button>
         <div className="collapse d-flex navbar-collapse" id="navbarSupportedContent">
           <ul>
-            <div className="name mt-3" href="/home">
-              <h2 >CORONA CARE</h2>
+            <div className="name mt-3" to="/home">
+              <h2 ><span>CORONA</span> CARE</h2>
             </div>
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
-                className="nav-link ms-3 active text-dark"
+              <Link
+                className="nav-link ms-3 active "
                 aria-current="page"
-                href="/home"
+                to="/home"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="#coronaServices " id>
+              <Link className="nav-link ms-3 " to="/coronaServices " id>
                 Corona Services
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="#reviews">
+              <Link className="nav-link ms-3 " to="/reviews">
                 Review
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="#blog">
+              <Link className="nav-link ms-3 " to="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="#contact">
+              <Link className="nav-link ms-3 " to="/contact">
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 text-dark" href="/login">
+              <Link className="nav-link ms-3 " to="/login">
                 Login 
-              </a>
+              </Link>
             </li>
             
           </ul>

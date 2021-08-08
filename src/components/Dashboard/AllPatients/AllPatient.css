@@ -1,0 +1,10 @@
+*{
+    margin: 0px;
+    padding:0px;
+  }
+.allPatient{
+    background-color:#272c4a;
+}
+.patient-info-side{
+    background-color: #3e386f;
+}

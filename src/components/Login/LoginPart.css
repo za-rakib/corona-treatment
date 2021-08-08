@@ -1,4 +1,3 @@
-
 form{
 	width: 360px;
 }
@@ -99,7 +98,7 @@ form{
 	margin-bottom: 4px;
 }
 
-a{
+.forget a{
 	display: block;
 	text-align: right;
 	text-decoration: none;
@@ -108,7 +107,7 @@ a{
 	transition: .3s;
 }
 
-a:hover{
+ .forget a:hover{
 	color: #38d39f;
 	
 }

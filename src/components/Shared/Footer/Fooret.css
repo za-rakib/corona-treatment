@@ -1,5 +1,5 @@
 .footer a {
-  color: #212529;
+  color:rgb(255, 255, 255);
 }
  .footer a:hover {
   color: #fec503;
@@ -14,7 +14,7 @@ a::selection {
 
 footer {
   padding: 2rem 0;
-  background-color: #212529;
+  background-color: #1f2874;
     padding-bottom: 2rem;  
 }
 

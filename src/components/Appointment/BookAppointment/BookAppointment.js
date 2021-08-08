@@ -42,7 +42,7 @@ const bookingData = [
 const BookAppointment = ({ date }) => {
  
   return (
-    <section className="container-fluid bookAppointment ">
+    <section className="container-fluid bookAppointment mb-5">
       <h3 className="text-center text-info pt-5 mb-5">
         Available Appointment on {date.toDateString()}{" "}
       </h3>

@@ -22,10 +22,32 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const day = date.toLocaleString("en-US", { day: "2-digit" });
+  const month = date.toLocaleString("en-US", { month: "short" });
+  const year = date.getFullYear().toString();
+  // console.log(day, month, year);
+
   const onSubmit = (data) => {
-    console.log(data);
-    closeModal()
-  }
+    data.service = subject;
+    data.date = day + " " + month + " " + year;
+    data.create = new Date().toLocaleString();
+    // console.log(data);
+    fetch("http://localhost:5000/appointment", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        console.log(success);
+        if (success) {
+          alert("Appointment successful");
+          closeModal();
+        }
+      });
+  };
 
   return (
     <div>
@@ -36,7 +58,9 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
         contentLabel="Example Modal"
       >
         <h3 className="text-center text-info">{subject}</h3>
-      <p className="text-center text-brand"><small>{date.toDateString()}</small></p>
+        <p className="text-center text-brand">
+          <small>{date.toDateString()}</small>
+        </p>
         <br />
         <form onSubmit={handleSubmit(onSubmit)} className="appointmentForm ">
           <div className="form-group">
@@ -46,8 +70,10 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
               className="form-control"
               {...register("selectDoctors", { required: true, maxLength: 20 })}
             >
-              <option value="not set" selected disabled>Select doctor</option>
-              <option value="john">Dr JOHN</option>
+              <option value="not set" selected disabled>
+                Select doctor
+              </option>
+              <option value="john">Dr John</option>
               <option value="peyton">Dr. Peyton</option>
               <option value="mark">Dr. Mark </option>
               <option value="kathie">Dr. Kathie L</option>
@@ -60,7 +86,9 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
               {...register("name", { required: true, maxLength: 20 })}
               placeholder="Your Name"
             />
-             {errors.firstName && <span style={{color:"red"}}>Please enter your name</span>}
+            {errors.firstName && (
+              <span style={{ color: "red" }}>Please enter your name</span>
+            )}
           </div>
           <br />
           <div className="form-group">
@@ -70,7 +98,11 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
               {...register("number", { required: true, maxLength: 20 })}
               placeholder="Phon Number"
             />
-             {errors.number && <span style={{color:"red"}}>Please enter your phon number</span>}
+            {errors.number && (
+              <span style={{ color: "red" }}>
+                Please enter your phon number
+              </span>
+            )}
           </div>
           <br />
           <div className="form-group">
@@ -79,15 +111,17 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
               {...register("email", { required: true, maxLength: 20 })}
               placeholder="Email"
             />
-             {errors.email && <span style={{color:"red"}}>Please enter your email</span>}
+            {errors.email && (
+              <span style={{ color: "red" }}>Please enter your email</span>
+            )}
           </div>
           <br />
           <div className="form-group">
             <input
               className="form-control"
-              type="date"
-              {...register("date", { min: 18, max: 99 })}
-              placeholder="mm/dd/yy"
+              type="number"
+              {...register("age", { min: 0, max: 150 })}
+              placeholder="Age"
             />
           </div>
           <br />

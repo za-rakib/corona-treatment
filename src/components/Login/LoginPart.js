@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import avatar from "../../image/avatar-2.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useForm } from "react-hook-form";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
-import { useForm } from "react-hook-form";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./LoginPart.css";
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router-dom";
+import SocialAuth from "./SocialAuth";
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 } else {
@@ -18,8 +18,12 @@ if (!firebase.apps.length) {
 }
 
 const LoginPart = () => {
-  const googleProvider = new firebase.auth.GoogleAuthProvider();
-  const fbProvider = new firebase.auth.FacebookAuthProvider();
+
+  const [loggedInUser, setLoggedInUser] =useContext(UserContext)
+  let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
+  
   const [user, setUser] = useState({
     isSigned: false,
     name: "",
@@ -35,34 +39,7 @@ const LoginPart = () => {
     formState: { errors },
   } = useForm();
 
-  //google authentication
-  const handleGoogle = () => {
-    firebase
-      .auth()
-      .signInWithPopup(googleProvider)
-      .then((result) => {
-        const { displayName, email, photoURL } = result.user;
-        const signedInUser = {
-          isSigned: true,
-          success: true,
-          name: displayName,
-          email: email,
-          photo: photoURL,
-        };
-        setUser(signedInUser);
-        // console.log(displayName, email, photoURL);
-        var credential = result.credential;
-        var token = credential.accessToken;
-      })
-      .catch((error) => {
-        const signedInUser = [...user];
-        signedInUser.success = false;
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
-      });
-  };
+  
   const signOut = () => {
     firebase
       .auth()
@@ -80,25 +57,6 @@ const LoginPart = () => {
       .catch((error) => {});
   };
 
-  //facebook authentication
-  const handleFacebook = () => {
-    firebase
-      .auth()
-      .signInWithPopup(fbProvider)
-      .then((result) => {
-        var credential = result.credential;
-        var user = result.user;
-        var accessToken = credential.accessToken;
-        console.log(user);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
-      });
-  };
-
   //email and password authentication
   const onSubmit = (event) => {
     // event.preventDefault();
@@ -107,16 +65,20 @@ const LoginPart = () => {
         .auth()
         .createUserWithEmailAndPassword(user.email, user.password)
         .then((res) => {
-          let newUserInfo = { ...user };
+          console.log(res);
+          const {email,error } = res.user;
+         let newUserInfo = {...user};
+         console.log(newUserInfo);
           newUserInfo = {
             isSigned: true,
-            email: res.email,
-            password: res.password,
+            email: email,
             success: true,
-            error: res.error,
+            error: error,
           };
+          console.log(newUserInfo);
           setUser(newUserInfo);
-          console.log(res);
+          setLoggedInUser(newUserInfo);
+          history.replace(from);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -130,6 +92,7 @@ const LoginPart = () => {
 
   //manage input
   const handleInput = (event) => {
+    console.log(event.target.name,event.target.value);
     let isFormValid = true;
     if (event.target.name === "email") {
       isFormValid =
@@ -137,23 +100,24 @@ const LoginPart = () => {
           event.target.value
         );
     }
-    // if (event.target.name === "password") {
-    //   const isValidPassword = event.target.value > 6;
-    //    const passwordHasNumber = /\d{1}/.test(event.target.value);
-    //   isFormValid = isValidPassword;
-    // }
+    if (event.target.name === "password") {
+      const isValidPassword = event.target.value.length>6;
+      console.log(isValidPassword);
+        const passwordHasNumber = /\d{1}/.test(event.target.value);
+      isFormValid = isValidPassword && passwordHasNumber ;
+    }
     if (isFormValid) {
-      const newUserInfo = { ...user };
+      const newUserInfo = {...user};
       newUserInfo[event.target.name] = event.target.value;
-      setUser(newUserInfo);
+       setUser(newUserInfo);
     }
   };
 
   return (
     <div className="d-flex flex-column">
-      <div className="ms-5 loginForm">
+      <div className="ms-5 loginForm  text-center">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <img src={avatar} alt="" />
+          <img className=" text-center" src={avatar} alt="" />
           <h2 className="title">Welcome</h2>
           <div className="input-div one">
             <div className="i">
@@ -180,7 +144,7 @@ const LoginPart = () => {
             <div className="div">
               {/* <h5>Password</h5> */}
               <input
-                type=""
+                type="password"
                 placeholder="Password"
                 name="password"
                 onBlur={handleInput}
@@ -189,8 +153,11 @@ const LoginPart = () => {
               />
             </div>
           </div>
-          <a href="#">Forgot Password?</a>
-          {/* <input type="submit" className="btn" value="Login" required></input> */}
+          <div className="forget">
+            <a href="#">
+              Forgot Password?
+            </a>
+          </div>
           {user.isSigned ? (
             <button
               style={{ backgroundColor: "#b44444" }}
@@ -213,17 +180,7 @@ const LoginPart = () => {
         )}
       </div>
       {/* social icon  */}
-      <div className="social d-flex justify-content-around ms-5 ps-2">
-        <i href="#" onClick={handleFacebook}>
-          <FontAwesomeIcon className="icon" icon={faFacebookSquare} />
-        </i>
-        <i href="#" onClick={handleGoogle}>
-          <FontAwesomeIcon className="icon" icon={faGoogle} />
-        </i>
-        <i href="#">
-          <FontAwesomeIcon className="icon" icon={faTwitter} />
-        </i>
-      </div>
+      <SocialAuth setLoggedInUser={setLoggedInUser} user={user} setUser={setUser}></SocialAuth>
     </div>
   );
 };

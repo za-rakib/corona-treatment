@@ -1,12 +1,21 @@
- .navbar a{
+ .navbar-main{
+     background-color: #35374b;
+     background-image: linear-gradient(to bottom right, #182acc
+     , #181b44
+     );
+ }
+ .navbar-main a{
     font-size: 25px;
-    color: red;
-}
-.name{
-    font-weight: bold;
-    color: #3a4256;
-
+    color: white;
+    font-weight:600;
 }
 .name h2{
-    letter-spacing: -3px;
+    font-weight: 900;
+    color: #ffffff;
+    font-size:35px;
+    letter-spacing: -5px;
+    word-spacing: 5px;
+}
+.name span{
+    color:rgb(24, 170, 68);
 }

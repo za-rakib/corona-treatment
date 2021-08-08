@@ -10,7 +10,7 @@ export const HeaderMain = () => {
         style={{ height: "500px " }}
         className="row d-flex align-items-center mt-5 pt-3"
       >
-        <div className="col-md-4 offset-md-1 ">
+        <div className="col-md-4 offset-md-1  ">
           <h1 style={{ color: "#3a4256" }}>Treatments</h1>
           <p className="text-secondary">
             The British Columbia COVID-19 Therapeutics Committee provides
