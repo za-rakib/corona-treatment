@@ -8,6 +8,7 @@ import MakeAppointment from "../MakeAppoinment/MakeAppointment";
 import Review from "../Review/Review/Review";
 import { Services } from "../Services/Services/Services";
 import Navbar from "../../Shared/Navbar/Navbar";
+import Doctors from "../OurDoctor/Doctors";
 
 export const Home = () => {
   return (
@@ -19,6 +20,7 @@ export const Home = () => {
       <MakeAppointment />
       <Review />
       <Blog />
+      <Doctors/>
       <Contact />
       <Footer />
     </div>

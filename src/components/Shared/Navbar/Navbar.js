@@ -19,8 +19,8 @@ const Navbar = () => {
         </button>
         <div className="collapse d-flex navbar-collapse" id="navbarSupportedContent">
           <ul>
-            <div className="name mt-3" to="/home">
-              <h2 ><span>CORONA</span> CARE</h2>
+            <div className="name mt-3">
+              <h2><span to="/home">CORONA</span> CARE</h2>
             </div>
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -34,24 +34,26 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link ms-3 " to="/coronaServices " id>
-                Corona Services
+              <a className="nav-link ms-3 " href="#services " >
+               Services
+              </a>
+            </li>
+            <li className="nav-item">
+            <a className="nav-link ms-3" href="#review">  Review</a>
+             
+            </li>
+            <li className="nav-item">
+              <a className="nav-link ms-3" href="#blog">Blog</a>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link ms-3 " to="/dashboard">
+               Dashboard
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link ms-3 " to="/reviews">
-                Review
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link ms-3 " to="/blog">
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link ms-3 " to="/contact">
+              <a className="nav-link ms-3" href="#contact">
                 Contact Us
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
               <Link className="nav-link ms-3 " to="/login">

@@ -23,7 +23,7 @@ const serviceData = [
 ];
 export const Services = () => {
   return (
-    <section id="coronaServices" className="services-container container-fluid">
+    <section id="services" className="services-container container-fluid">
       <div className="text-center services">
         <h5>OUR SERVICES</h5>
         <h2 className="mt-4">Services We Provide</h2>

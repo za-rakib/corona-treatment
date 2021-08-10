@@ -26,12 +26,12 @@ const blogs = [
 ];
 const Blog = () => {
   return (
-    <section className="container-fluid blog-container pb-5">
+    <section id='blog' className="container-fluid blog-container pb-5">
       <div className="text-center text-white pt-5">
         <h4>OUR BLOG</h4>
         <h1 className='mb-5 mt-4'>From Our Blog News</h1>
       </div>
-      <div className="row blog-card">
+      <div className="row blog-card ms-5">
         {blogs.map((blog) => (
           <BlogCard blog={blog} />
         ))}

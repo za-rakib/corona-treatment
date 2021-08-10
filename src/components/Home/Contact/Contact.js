@@ -24,13 +24,12 @@ const Contact = () => {
     e.target.reset();
   }
   return (
-    <section className="contact contactSection  ">
+    <section id="contact"className="contact contactSection">
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12">
             <div className="mt-5 text-center text-white">
-              <h5 className="text-white">CONTACT US</h5>
-              <h1>Always Contact With Us</h1>
+              <h1>Contact With Us</h1>
             </div>
             <form
               onSubmit={sendEmail}

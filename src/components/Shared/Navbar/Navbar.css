@@ -1,12 +1,14 @@
  .navbar-main{
-     background-color: #35374b;
-     background-image: linear-gradient(to bottom right, #182acc
-     , #181b44
-     );
+     /* background-color: #35374b; */
+     background-image: linear-gradient(to bottom right, #405382, #416b8e)
  }
  .navbar-main a{
     font-size: 25px;
     color: white;
+    font-weight:600;
+}
+.navbar-main a:hover{
+    color: #0fc4e4;
     font-weight:600;
 }
 .name h2{
@@ -17,5 +19,5 @@
     word-spacing: 5px;
 }
 .name span{
-    color:rgb(24, 170, 68);
+    color:#2cdfff;
 }

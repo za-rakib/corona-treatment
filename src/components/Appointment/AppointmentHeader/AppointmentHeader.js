@@ -7,7 +7,7 @@ const AppointmentHeader = ({ handleDateChange }) => {
   //   console.log(data)
   // }
   return (
-    <div className="" style={{ backgroundColor: "#466465" ,height:'550px' }}>
+    <div className="" style={{ backgroundColor: "#525b96" ,height:'550px' }}>
       <main className="container-fluid">
         <div className="row d-flex align-items-center  pt-1">
             <div className="col-md-4 offset-md-1 mt-5">

@@ -22,7 +22,7 @@ const reviews = [
 ];
 const Review = () => {
   return (
-    <section className="container-fluid mt-5 mb-5">
+    <section id='review' className="container-fluid mt-5 mb-5">
         <h1 className=' text-center mb-5'>What's Our Patients Says</h1>
       <div className="row d-flex justify-content-around">
         {reviews.map(review => (

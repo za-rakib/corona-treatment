@@ -9,6 +9,8 @@
     color: white;
     padding: 0.25rem 1rem;
     cursor: pointer;
+    border: none;
+    border-radius:5px;
   }
   
   .button:hover,
@@ -17,6 +19,7 @@
     background: #741188;
     border-color: #741188;
     color:azure;
+    border-radius:10px;
   }
   
   .button:focus {

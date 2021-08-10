@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import test from "../../../../image/disease-test-2.jpg";
 import Button from "../../../UI/Button/Button";
+import './HeaderMain.css'
 
 export const HeaderMain = () => {
   return (
     <main className="container-fluid">
       <div
-        style={{ height: "500px " }}
-        className="row d-flex align-items-center mt-5 pt-3"
+        style={{ height: "500px ", marginTop:"200px" }}
+        className="row d-flex align-items-center mt-5 pt-5"
       >
         <div className="col-md-4 offset-md-1  ">
           <h1 style={{ color: "#3a4256" }}>Treatments</h1>

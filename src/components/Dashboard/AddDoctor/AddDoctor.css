@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding:0px;
+  }
+.addDoctor{
+    background-color:#272c4a;
+}
+.doctor-info-side{
+    background-color: #3e386f;
+}
+.doctorForm{
+    background-color:#57669e;
+    margin: auto;
+    width: 700px;  
+    z-index: 2;
+    box-shadow: 5px 10px 10px #272c4a;
+}
+.doctorForm form{
+    width: 600px;
+}

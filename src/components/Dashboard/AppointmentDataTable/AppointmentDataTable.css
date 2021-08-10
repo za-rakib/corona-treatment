@@ -1,4 +1,6 @@
 .patient-info{
+    border-radius: 5px;
     color: white;
-    background-color:#6966a2;
+    background-color:#534a9a;
+    z-index: 6;
 }
