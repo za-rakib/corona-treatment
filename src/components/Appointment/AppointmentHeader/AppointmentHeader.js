@@ -1,5 +1,5 @@
 import React from "react";
-import test from "../../../image/appointment2.jpg";
+import test from "../../../image/appointment3.jpg";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 const AppointmentHeader = ({ handleDateChange }) => {
@@ -14,7 +14,7 @@ const AppointmentHeader = ({ handleDateChange }) => {
               <h1 className='p-2' style={{ color: "white" }}>Appointment </h1>
               <Calendar onChange={handleDateChange} value={new Date()} />
             </div>
-            <div className="col-md-6 image mt-5">
+            <div className="col-md-6 image ms-5 ps-5 mt-5">
               <img
                 style={{ width: "550px", height: "auto" }}
                 className="img-fluid"

@@ -25,12 +25,9 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/appointment">
+          <PrivateRoute path="/appointment">
             <Appointment />
-          </Route>
-          {/* <PrivateRoute path="/appointment">
-            <Appointment />
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route path="/about">
             <About />
           </Route>
@@ -43,9 +40,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard/>
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

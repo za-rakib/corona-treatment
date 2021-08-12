@@ -18,3 +18,14 @@
 .doctorForm form{
     width: 600px;
 }
+.addDocBtn{
+    background-color:#323965 ;
+    border-color: #323965;
+    font-size:20px;
+}
+.addDocBtn:hover{
+    background: #741188;
+    border-color: #741188;
+    font-size:20px;
+    color: white;
+}

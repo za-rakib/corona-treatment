@@ -2,19 +2,19 @@ import React from "react";
 import ReviewCard from "../ReviewCard/ReviewCard";
 const reviews = [
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis autem, provident beatae ipsa placeat consequuntur.",
+    text: "Recently visited health check up department of XX Hospital for a whole body check up. The entire process from check in to the end was seamless.",
     name: " Jhon Stark",
     place: "washington",
     image:''
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis autem, provident beatae ipsa placeat consequuntur.",
+    text: "Recently visited health check up department of XX Hospital for a whole body check up. The entire process from check in to the end was seamless.",
     name: " Jhon Stark",
     place: "washington",
     image:""
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis autem, provident beatae ipsa placeat consequuntur.",
+    text: "Recently visited health check up department of XX Hospital for a whole body check up. The entire process from check in to the end was seamless.",
     name: " Jhon Stark",
     place: "washington",
     image:""

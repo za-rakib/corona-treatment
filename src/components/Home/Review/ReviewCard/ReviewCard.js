@@ -10,8 +10,8 @@ const ReviewCard = ({ review }) => {
         <p className="card-text">{review.text}</p>
       </div>
       <div>
-        <div></div>
-        <div className=" bg-transparent">
+       
+        <div className="bg-transparent text-center">
           <h1>{review.name}</h1>
           <p>{review.place}</p>
         </div>
