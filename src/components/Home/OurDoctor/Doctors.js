@@ -21,7 +21,7 @@ import jhon from "../../../image/dr-jhon.jpg";
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("https://glacial-everglades-10374.herokuapp.com/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

@@ -25,14 +25,14 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
   const day = date.toLocaleString("en-US", { day: "2-digit" });
   const month = date.toLocaleString("en-US", { month: "short" });
   const year = date.getFullYear().toString();
-  // console.log(day, month, year);
+  //console.log(day, month, year);
 
   const onSubmit = (data) => {
     data.service = subject;
     data.date = day + " " + month + " " + year;
     data.create = new Date().toLocaleString();
-    // console.log(data);
-    fetch("http://localhost:5000/appointment", {
+    //console.log(data);
+    fetch("https://glacial-everglades-10374.herokuapp.com/appointment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, subject, date }) => {
     })
       .then((res) => res.json())
       .then((success) => {
-        console.log(success);
+        //console.log(success);
         if (success) {
           alert("Appointment successful");
           closeModal();

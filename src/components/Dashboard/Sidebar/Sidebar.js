@@ -17,9 +17,9 @@ import { UserContext } from "../../../App";
 const Sidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [isDoctor, setDoctor] = useState(false);
- console.log('context email', loggedInUser.email)
+ //console.log('context email', loggedInUser.email)
   useEffect(() => {
-    fetch("http://localhost:5000/isDoctor", {
+    fetch("https://glacial-everglades-10374.herokuapp.com/isDoctor", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({email:loggedInUser.email})

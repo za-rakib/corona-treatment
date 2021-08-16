@@ -6,19 +6,19 @@ import Calendar from "react-calendar";
 import { UserContext } from "../../App";
 const Dashboard = () => {
   const [loggedInUser, setLoggedInUser]= useContext(UserContext)
-  console.log(loggedInUser)
+  //console.log(loggedInUser)
 // const [selectedDate, setSelectedDate] = useState(new Date());
   const [appointments, setAppointments] = useState([]);
 
   const handleDateChange = (date) => {
-    console.log(date)
+    //console.log(date)
     let day = date.toLocaleString('en-US', {day: '2-digit'});
     let month = date.toLocaleString('en-US', {month: 'short'});
     let year = date.getFullYear().toString();
     let mySelectedDate = day + ' ' + month + ' ' + year;
-    console.log(mySelectedDate);
+    //console.log(mySelectedDate);
     // setSelectedDate(mySelectedDate);
-    fetch("http://localhost:5000/appointmentByDate", {
+    fetch("https://glacial-everglades-10374.herokuapp.com/appointmentByDate", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({mySelectedDate,email:loggedInUser.email})
@@ -27,7 +27,7 @@ const Dashboard = () => {
       .then((data) => setAppointments(data));
    };
   // useState(()=>{
-  //   fetch("http://localhost:5000/appointmentByDate", {
+  //   fetch("https://glacial-everglades-10374.herokuapp.com/appointmentByDate", {
   //     method: "POST",
   //     headers: { "content-type": "application/json" },
   //     body: JSON.stringify({date:selectedDate})

@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import firebase from "firebase/app";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from "react-router-dom";
 
 const SocialAuth = ({ setLoggedInUser, user, setUser }) => {
-    let history = useHistory();
-    let location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
+  let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
 
-    //google authentication
+  //google authentication
   const handleGoogle = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     firebase
       .auth()
       .signInWithPopup(googleProvider)
       .then((result) => {
-        console.log(result);
+        //console.log(result);
         const { displayName, email, photoURL } = result.user;
         const signedInUser = {
           isSigned: true,
@@ -28,9 +28,9 @@ const SocialAuth = ({ setLoggedInUser, user, setUser }) => {
           photo: photoURL,
         };
         setUser(signedInUser);
-        setLoggedInUser(signedInUser)
+        setLoggedInUser(signedInUser);
         history.replace(from);
-        // console.log(displayName, email, photoURL);
+        //console.log(displayName, email, photoURL);
         var credential = result.credential;
         var token = credential.accessToken;
       })
@@ -54,7 +54,7 @@ const SocialAuth = ({ setLoggedInUser, user, setUser }) => {
         var credential = result.credential;
         var user = result.user;
         var accessToken = credential.accessToken;
-        console.log(user);
+        //console.log(user);
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -63,9 +63,9 @@ const SocialAuth = ({ setLoggedInUser, user, setUser }) => {
         var credential = error.credential;
       });
   };
-    return (
-        <div>
-            <div className="social d-flex justify-content-around ms-5 ps-2">
+  return (
+    <div>
+      <div className=" d-flex justify-content-around ms-5 ps-2">
         <i href="#" onClick={handleFacebook}>
           <FontAwesomeIcon className="icon" icon={faFacebookSquare} />
         </i>
@@ -76,8 +76,8 @@ const SocialAuth = ({ setLoggedInUser, user, setUser }) => {
           <FontAwesomeIcon className="icon" icon={faTwitter} />
         </i>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default SocialAuth;

@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import AllPatients from "./components/Dashboard/AllPatients/AllPatients";
 import AddDoctor from "./components/Dashboard/AddDoctor/AddDoctor";
 import Blog from "./components/Home/Blog/Blog/Blog";
+import SignUp from "./components/Login/SignUp/SignUp";
 export const UserContext = createContext();
 
 function App() {
@@ -40,9 +41,12 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <PrivateRoute path="/dashboard">
+          <Route path="/signUp">
+            <SignUp/>
+          </Route>
+          {/* <PrivateRoute path="/dashboard">
             <Dashboard/>
-          </PrivateRoute>
+          </PrivateRoute> */}
         </Switch>
       </Router>
     </UserContext.Provider>

@@ -22,7 +22,7 @@ const AddDoctor = () => {
   // };
 
   const handleImageUpload = (e) => {
-    console.log(e);
+    //console.log(e);
     const imageData = new FormData();
     imageData.set("key", "db66292a5001748309bbc6817d6c3e80");
     imageData.append("image", e.target.files[0]);
@@ -30,26 +30,26 @@ const AddDoctor = () => {
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
         setFile(response.data.data.display_url);
-        // console.log(response.data.data.display_url);
+        //console.log(response.data.data.display_url);
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
       });
   };
   const onSubmit = (data) => {
-    console.log(data)
+    //console.log(data)
     const eventData = {
       name: data.name,
       email: data.email,
       imageUrl: file,
     };
-    // console.log(eventData)
+    //console.log(eventData)
     // const formData = new FormData();
     // formData.append("file", file);
     // formData.append("name", info.name);
     // formData.append("email", info.email);
 
-    fetch("http://localhost:5000/addADoctor", {
+    fetch("https://glacial-everglades-10374.herokuapp.com/addADoctor", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +58,7 @@ const AddDoctor = () => {
     })
        .then((response) => response.json())
        .then((success) => {
-        console.log(success);
+        //console.log(success);
         if (success) {
           alert("Upload successful");
         }

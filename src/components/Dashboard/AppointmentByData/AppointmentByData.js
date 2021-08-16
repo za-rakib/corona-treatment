@@ -3,7 +3,7 @@ import "./AppointmentByData.css";
 import AppointmentShortList from "../AppointmentShortList/AppointmentShortList";
 
 const AppointmentByData = ({ appointments }) => {
-  console.log(appointments);
+  //console.log(appointments);
   return (
     <div className='appointmentByDate'>
       <h2 className="text-brand text-center pt-4">Appointments</h2>

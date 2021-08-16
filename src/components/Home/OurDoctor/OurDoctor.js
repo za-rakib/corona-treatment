@@ -6,7 +6,7 @@ import {
 import React from "react";
 
 const OurDoctor = ({ doctor }) => {
-  // console.log(doctor);
+  //console.log(doctor);
   return (
     <div className="col-md-4 text-center">
       <img className="img-fluid img-thumbnail mb-3" src={doctor.imageUrl} alt=""/>
