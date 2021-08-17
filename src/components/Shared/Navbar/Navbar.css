@@ -21,3 +21,8 @@
 .name span{
     color:#2cdfff;
 }
+.nav-img{
+    height: 50px;
+    width: 50px;
+    border-radius:50%;
+}

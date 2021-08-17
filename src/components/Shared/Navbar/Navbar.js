@@ -4,7 +4,8 @@ import { UserContext } from "../../../App";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [loggedInUser, setLoggedInUser]= useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  //console.log(" from nav", loggedInUser);
   return (
     <nav className="navbar-main  navbar-expand-lg ml-auto text-white">
       <div className="container-fluid">
@@ -19,10 +20,15 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse d-flex navbar-collapse" id="navbarSupportedContent">
+        <div
+          className="collapse d-flex navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul>
             <div className="name mt-3">
-              <h2><span to="/home">CORONA</span> CARE</h2>
+              <h2>
+                <span to="/home">CORONA</span> CARE
+              </h2>
             </div>
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -36,8 +42,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link ms-3 " href="#services " >
-               Services
+              <a className="nav-link ms-3 " href="#services ">
+                Services
               </a>
             </li>
             {/* <li className="nav-item">
@@ -45,29 +51,34 @@ const Navbar = () => {
              
             </li> */}
             <li className="nav-item">
-              <a className="nav-link ms-3" href="#blog">Blog</a>
+              <a className="nav-link ms-3" href="#blog">
+                Blog
+              </a>
             </li>
             <li className="nav-item">
               <Link className="nav-link ms-3 " to="/dashboard">
-               Dashboard
+                Dashboard
               </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link ms-3" href="#contact">
-                Contact 
+                Contact
               </a>
             </li>
+            {loggedInUser.isSigned ? (
+              <img className='nav-img p-2' src={loggedInUser.photo} alt="" />
+            ) : (
+              <li className="nav-item">
+                <Link className="nav-link ms-3 " to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
             {/* <li className="nav-item">
-              <Link className="nav-link ms-3 " to="/login">
-                Login 
-              </Link>
-            </li> */}
-             <li className="nav-item">
               <Link className="nav-link ms-3 " to="/signUp">
                Sign Up
               </Link>
-            </li>
-            
+            </li> */}
           </ul>
         </div>
       </div>

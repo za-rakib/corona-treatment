@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 const AppointmentHeader = ({ handleDateChange }) => {
   // const handleDateChange = (date) => {
-  //   //console.log(data)
+   //console.log(data)
   // }
   return (
     <div className="" style={{ backgroundColor: "#525b96" ,height:'550px' }}>

@@ -27,11 +27,11 @@ const SignUp = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    //console.log(data);
     const email = data.email;
     const password = data.password;
     const confirmPassword = data.confirmPassword;
-    console.log(password, confirmPassword);
+    //console.log(password, confirmPassword);
      if(password===confirmPassword){
       firebase
       .auth()
@@ -39,23 +39,23 @@ const SignUp = () => {
       .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
-       // console.log(user);
+       //console.log(user);
 
-        // let newUserInfo = { ...newUser };
-        // newUserInfo = {
-        //   isSignup: true,
-        //   name: "",
-        //   email: email,
-        //   photo: "",
-        //   error: error,
-        //   success: true,
-        // };
-        // setNewUser(newUserInfo);
-        // setLoggedInUser(newUserInfo);
-        // history.replace(from);
+        let newUserInfo = { ...newUser };
+        newUserInfo = {
+          isSignup: true,
+          name: "",
+          email: email,
+          photo: "",
+          // error: error,
+          success: true,
+        };
+        setNewUser(newUserInfo);
+        setLoggedInUser(newUserInfo);
+        history.replace(from);
 
         const updateUsername = firebase.auth().currentUser;
-        console.log(updateUsername.displayName);
+        //console.log(updateUsername.displayName);
         updateUsername
           .updateProfile({
             displayName: data.name,
@@ -66,7 +66,7 @@ const SignUp = () => {
              //console.log('res', res);
           })
           .catch((error) => {
-            // console.log("error",error);
+            //console.log("error",error);
           });
       })
       .catch((error) => {
@@ -76,7 +76,7 @@ const SignUp = () => {
         newUserInfo.success = false;
         setNewUser(newUserInfo);
         alert(newUser.error);
-        console.log(error);
+        //console.log(error);
       });
      }
      else{

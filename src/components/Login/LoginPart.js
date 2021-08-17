@@ -56,11 +56,12 @@ const LoginPart = () => {
       })
       .catch((error) => {});
   };
-  console.log(user);
+ 
+// console.log(user);
   //email and password authentication
   const onSubmit = (event) => {
     // event.preventDefault();
-    console.log(user.password);
+    // console.log(user.password);
     if (user.email && user.password) {
       firebase
         .auth()
@@ -88,7 +89,7 @@ const LoginPart = () => {
           newUserInfo.error = error.message;
           newUserInfo.success = false;
           setUser(newUserInfo);
-          console.log(error.message);
+          //console.log(error.message);
         });
     }
     // event.target.reset();
